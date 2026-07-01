@@ -1,0 +1,70 @@
+<header class="app-header">
+  <div class="header-content">
+    <h1>Weather Proxy Dashboard</h1>
+
+    <div class="controls-form">
+      <mat-form-field appearance="outline" class="city-selector">
+        <mat-label>Search Cities...</mat-label>
+
+        <mat-chip-grid #chipGrid aria-label="City selection">
+          @for (city of cityService.selectedCities(); track city.id) {
+            <mat-chip-row (removed)="removeCity(city)">
+              {{ city.name }}, {{ city.country }}
+              <button matChipRemove aria-label="remove city">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          }
+
+          <input
+            placeholder="Type a city name (e.g. Granada)..."
+            #cityInput
+            [formControl]="searchControl"
+            [matChipInputFor]="chipGrid"
+            [matAutocomplete]="auto"
+          />
+        </mat-chip-grid>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="citySelected($event)">
+          @for (city of searchResults(); track city.id) {
+            <mat-option [value]="city"> {{ city.name }}, {{ city.country }} </mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div class="action-buttons">
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="cityService.selectedCities().length === 0"
+          (click)="onCurrentWeatherClick()"
+        >
+          Current Weather
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="cityService.selectedCities().length === 0"
+          (click)="onForecastClick()"
+        >
+          Forecast
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (weatherService.isLoading() || isSearching()) {
+    <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+  }
+
+  @if (errorService.errorMessage()) {
+    <div class="global-error-banner">
+      <div class="error-content">
+        <mat-icon>warning</mat-icon>
+        <span>{{ errorService.errorMessage() }}</span>
+      </div>
+      <button mat-icon-button (click)="errorService.clearError()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  }
+</header>

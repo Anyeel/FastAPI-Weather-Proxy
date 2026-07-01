@@ -1,0 +1,68 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Color palette (Corporate Colors) */
+:root {
+  --primary-dark: #3c3b34;
+  --accent-color: #ff6b6b;
+  --bg-color: #f8f9fa;
+  --text-light: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--primary-dark);
+}
+
+/* Global reset for Material headers */
+.mat-mdc-table {
+  th {
+    background-color: var(--primary-dark) !important;
+    color: var(--text-light) !important;
+  }
+}
+
+/* Fix for Angular Material Select Dropdown Panel Contrast */
+.cdk-overlay-pane .mat-mdc-select-panel {
+  background-color: var(--bg-color) !important;
+
+  /* Make the text dark */
+  .mat-mdc-option {
+    color: var(--primary-dark) !important;
+  }
+
+  /* Make the unchecked checkboxes visible */
+  .mdc-checkbox__background {
+    border-color: var(--primary-dark) !important;
+  }
+}
+
+/* Primary Raised Buttons */
+.mdc-button--raised.mat-primary {
+  --mdc-protected-button-container-color: var(--text-light) !important;
+  --mdc-protected-button-label-text-color: var(--primary-dark) !important;
+}
+
+/* Accent Raised Buttons */
+.mdc-button--raised.mat-accent {
+  --mdc-protected-button-container-color: var(--accent-color) !important;
+  --mdc-protected-button-label-text-color: var(--text-light) !important;
+}
+
+/* Disabled State for Dark Backgrounds */
+button.mat-mdc-raised-button:disabled {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Force internal label span to take the color */
+button.mat-mdc-raised-button:disabled .mdc-button__label {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Loading Progress Bar */
+.mat-mdc-progress-bar.mat-accent {
+  --mdc-linear-progress-active-indicator-color: var(--accent-color) !important;
+  --mdc-linear-progress-track-color: rgba(255, 107, 107, 0.2) !important;
+}

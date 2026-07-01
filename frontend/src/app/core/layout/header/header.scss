@@ -1,0 +1,133 @@
+.app-header {
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+.controls-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  .city-selector {
+    width: 300px;
+    margin-bottom: -1.25em;
+
+    ::ng-deep {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: rgba(255, 255, 255, 0.7) !important;
+        transition: border-color 0.3s ease;
+      }
+
+      .mat-mdc-input-element {
+        color: rgba(255, 255, 255, 0.7) !important;
+        caret-color: #ffffff !important;
+      }
+
+      .mdc-floating-label,
+      .mat-mdc-form-field-icon-prefix,
+      .mat-mdc-form-field-icon-suffix {
+        color: rgba(255, 255, 255, 0.7) !important;
+      }
+
+      .mat-mdc-form-field:hover .mdc-notched-outline__leading,
+      .mat-mdc-form-field:hover .mdc-notched-outline__notch,
+      .mat-mdc-form-field:hover .mdc-notched-outline__trailing,
+      .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+      .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+      .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+        border-color: #ffffff !important;
+        border-width: 2px !important;
+      }
+
+      input.mat-mdc-input-element,
+      .mdc-text-field__input {
+        color: rgba(255, 255, 255, 0.7) !important;
+        caret-color: #ffffff !important;
+        -webkit-text-fill-color: rgba(
+          255,
+          255,
+          255,
+          0.7
+        ) !important; /* Fixes browser autofill overrides */
+      }
+
+      .mat-mdc-form-field:hover .mat-mdc-input-element,
+      .mat-mdc-form-field.mat-focused .mat-mdc-input-element,
+      .mat-mdc-form-field:hover .mdc-floating-label,
+      .mat-mdc-form-field.mat-focused .mdc-floating-label,
+      .mat-mdc-form-field:hover .mat-mdc-form-field-icon-prefix,
+      .mat-mdc-form-field.mat-focused .mat-mdc-form-field-icon-prefix,
+      .mat-mdc-form-field:hover .mat-mdc-form-field-icon-suffix,
+      .mat-mdc-form-field.mat-focused .mat-mdc-form-field-icon-suffix {
+        color: #ffffff !important;
+      }
+
+      /* THE CHIPS */
+      .mdc-evolution-chip {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        transition: background-color 0.3s ease;
+
+        .mdc-evolution-chip__text-label,
+        .mdc-evolution-chip__icon--trailing {
+          color: rgba(255, 255, 255, 0.7) !important;
+          transition: color 0.3s ease;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2) !important;
+          .mdc-evolution-chip__text-label,
+          .mdc-evolution-chip__icon--trailing {
+            color: #ffffff !important;
+          }
+        }
+      }
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Global Error Banner */
+.global-error-banner {
+  background-color: #d32f2f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .error-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

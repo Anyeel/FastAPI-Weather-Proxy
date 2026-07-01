@@ -1,0 +1,49 @@
+<div class="weather-container">
+  @if (weatherService.isLoading()) {
+    <div class="loading-shade">
+      <mat-spinner color="accent"></mat-spinner>
+      <p>Fetching latest weather data...</p>
+    </div>
+  }
+
+  <div class="weather-grid">
+    @for (weather of weatherData$ | async; track weather.city_id) {
+      <mat-card class="weather-card">
+        <mat-card-header>
+          <mat-card-title>{{ weather.city_name }}</mat-card-title>
+          <mat-icon mat-card-avatar class="weather-icon">
+            {{ getWeatherIcon(weather.description) }}
+          </mat-icon>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="temp-display">
+            <span class="temp-value">{{ weather.temperature | number: '1.0-1' }}</span>
+            <span class="temp-unit">°C</span>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="details-row">
+            <div class="detail-item">
+              <mat-icon>water_drop</mat-icon>
+              <span>{{ weather.humidity }}% Humidity</span>
+            </div>
+            <div class="detail-item">
+              <mat-icon>air</mat-icon>
+              <span class="description">{{ getFriendlyDescription(weather.description) }}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    } @empty {
+      @if (!weatherService.isLoading()) {
+        <div class="empty-state">
+          <mat-icon>search_off</mat-icon>
+          <h3>No cities selected</h3>
+          <p>Search for a city in the header to see its weather here.</p>
+        </div>
+      }
+    }
+  </div>
+</div>

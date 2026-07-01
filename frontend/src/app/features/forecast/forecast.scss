@@ -1,0 +1,79 @@
+.forecast-container {
+  padding: 2rem;
+  position: relative;
+  min-height: 400px;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.cities-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.city-forecast-row {
+  .city-title {
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 12px;
+  }
+}
+
+/* --- NEW TABLE STYLES --- */
+.premium-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden; /* Keeps the rounded corners crisp */
+
+  th.mat-header-cell {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    background-color: #f5f5f5; /* Light gray header */
+  }
+
+  td.mat-cell {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+  .forecast-icon {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: 4px;
+  }
+
+  .temp-cell {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .desc-cell {
+    text-transform: capitalize;
+    color: #666;
+  }
+
+  /* Add a gentle hover effect to the rows */
+  tr.mat-row:hover {
+    background-color: #fcfcfc;
+  }
+}

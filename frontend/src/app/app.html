@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+@if (weatherService.errorMessage()) {
+  <div class="error-banner">
+    {{ weatherService.errorMessage() }}
+  </div>
+}
+
+<main class="dashboard-content">
+  <router-outlet></router-outlet>
+</main>
